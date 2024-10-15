@@ -14,12 +14,11 @@ const Timer = () => {
       }, 1000);
     }
 
-    // Pausa o temporizador automaticamente após 60 segundos
+    // Pausa
     if (seconds === 60) {
       setIsRunning(false);
     }
 
-    // Limpa o intervalo quando o componente desmonta ou o temporizador é pausado
     return () => clearInterval(timer);
   }, [seconds, isRunning]);
 
@@ -29,23 +28,12 @@ const Timer = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.timerText}>{seconds} seconds</Text>
+    <View }>
+      <Text>{seconds} seconds</Text>
       <Button title="Reiniciar" onPress={resetTimer} />
     </View>
   );
-};
+}; 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  timerText: {
-    fontSize: 48,
-    marginBottom: 20,
-  },
-});
 
 export default Timer;
